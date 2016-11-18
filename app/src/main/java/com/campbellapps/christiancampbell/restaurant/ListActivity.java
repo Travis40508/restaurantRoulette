@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -48,6 +49,7 @@ public class ListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(ListActivity.this, MapsActivity.class);
                 Restaurant restaurant = list.get(position);
+                Toast.makeText(ListActivity.this, "Finding Current Location", Toast.LENGTH_SHORT).show();
                 intent.putExtra("address", restaurant.getAddress());
                 startActivity(intent);
             }
