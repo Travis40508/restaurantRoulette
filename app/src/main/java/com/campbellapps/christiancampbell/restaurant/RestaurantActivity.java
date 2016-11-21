@@ -86,7 +86,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         //Creates an instance of Firebase
         mRootRef = new Firebase("https://restaurantroulette-89089.firebaseio.com/restaurants");
-        mRootRef.keepSynced(true);
+        mRootRef.keepSynced(false);
 
         //starts grab fire method
         grabFireBase();
