@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -35,7 +33,6 @@ import Modules.Route;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         GoogleMap.OnMarkerClickListener, DirectionFinderListener {
 
-    Button directions;
     LatLng loc;
     String address;
     private GoogleMap mMap;
@@ -57,18 +54,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        directions = (Button) findViewById(R.id.buttonDawg);
 
-        directions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendRequest();
-            }
-        });
+//        directions.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sendRequest();
+//            }
+//        });
+
+
 
          //fragment listener variable.
 
     }
+
+
+
 
     /**
      * Manipulates the map once available.
@@ -97,6 +98,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                sendRequest();
+            }
+        });
+
 
 
     }
@@ -127,8 +135,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onMyLocationChange(Location location) {
 
             loc = new LatLng(location.getLatitude(), location.getLongitude());
+//            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 18));
 
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 18));
 
 
 

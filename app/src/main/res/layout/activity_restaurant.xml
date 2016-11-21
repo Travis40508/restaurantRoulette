@@ -19,6 +19,7 @@
         android:id="@+id/burger"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+
          />
 
     <ImageView
@@ -140,5 +141,12 @@
         android:layout_below="@id/mexican"
 
         />
+
+    <ProgressBar
+        android:id="@+id/progress_spinner"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

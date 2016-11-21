@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView floyd;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         magoffin = (ImageView) findViewById(R.id.magoffin_county);
         johnson = (ImageView) findViewById(R.id.johnson_county);
         floyd = (ImageView) findViewById(R.id.floyd_county);
+
+
 
 
         //Calls clicking methods
@@ -109,4 +112,11 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
         this.overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
 }
