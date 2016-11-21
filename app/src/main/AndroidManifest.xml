@@ -25,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity
@@ -34,7 +35,8 @@
         <activity
             android:name=".RestaurantActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".MapsActivity" />
+        <activity android:name=".MapsActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

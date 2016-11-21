@@ -23,16 +23,17 @@ public class ListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         choice = intent.getStringExtra("choice");
 
+        this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         getExtras();
     }
 
-
-    //Sets up on start animations.
     @Override
-    protected void onStart() {
-        super.onStart();
-        this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+
+
 
     //retrieves arraylist from previous activity and adds it to list above to be used with the adapter.
     public void getExtras() {
@@ -54,13 +55,6 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    //sets up backPress animations.
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }

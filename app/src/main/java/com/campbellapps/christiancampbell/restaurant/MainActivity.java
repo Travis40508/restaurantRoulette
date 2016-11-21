@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView magoffin;
     ImageView johnson;
     ImageView floyd;
+    ImageView pike;
 
 
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         magoffin = (ImageView) findViewById(R.id.magoffin_county);
         johnson = (ImageView) findViewById(R.id.johnson_county);
         floyd = (ImageView) findViewById(R.id.floyd_county);
+        pike = (ImageView) findViewById(R.id.pike_county);
 
 
 
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         magoffinClick();
         johnsonClick();
         floydClick();
+        pikeClick();
+        this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     //onStart animations.
@@ -64,7 +68,13 @@ public class MainActivity extends AppCompatActivity {
                         new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
-        this.overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     //sets county in populateArray() equal to "magoffin" so that it only searches Magoffin restaurants.
@@ -106,17 +116,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //onBackPressed animations.
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        this.overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
+    public void pikeClick() {
+        pike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+                intent.putExtra("county", "pike");
+                startActivity(intent);
+            }
+        });
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
 }

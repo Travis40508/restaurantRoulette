@@ -65,7 +65,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         //Sets Firebase
         Firebase.setAndroidContext(this);
-        Firebase.getDefaultConfig().setPersistenceEnabled(true);
+
 
         //Initializes variables with layout
         burger = (ImageView) findViewById(R.id.burger);
@@ -82,7 +82,6 @@ public class RestaurantActivity extends AppCompatActivity {
         taco = (ImageView) findViewById(R.id.taco);
         steak = (ImageView) findViewById(R.id.steak);
 
-        spinner = (ProgressBar) findViewById(R.id.progress_spinner);
 
         //Creates an instance of Firebase
         mRootRef = new Firebase("https://restaurantroulette-89089.firebaseio.com/restaurants");
@@ -106,18 +105,15 @@ public class RestaurantActivity extends AppCompatActivity {
         steakClick();
         randomClick();
 
-
+        this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        spinner.setVisibility(View.GONE);
-
-
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+
 
     //Accesses information from firebase instance.
     protected void grabFireBase() {
@@ -424,13 +420,5 @@ public class RestaurantActivity extends AppCompatActivity {
             }
         });
     }
-
-    //back press animation.
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
-
 
 }
