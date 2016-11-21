@@ -49,7 +49,7 @@ public class ListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(ListActivity.this, MapsActivity.class);
                 Restaurant restaurant = list.get(position);
-                Toast.makeText(ListActivity.this, "Finding Current Location", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListActivity.this, "Finding Directions, Please Wait!", Toast.LENGTH_SHORT).show();
                 intent.putExtra("address", restaurant.getAddress());
                 startActivity(intent);
             }

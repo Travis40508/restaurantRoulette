@@ -135,7 +135,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onMyLocationChange(Location location) {
 
             loc = new LatLng(location.getLatitude(), location.getLongitude());
-//            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 18));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 18));
 
 
 
@@ -164,8 +164,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onDirectionFinderStart() {
-        progressDialog = ProgressDialog.show(this, "Please wait.",
-                "Finding directions!", true);
+        progressDialog = ProgressDialog.show(this, "Loading.",
+                "Please Wait", true);
 
         if (originMarkers != null) {
             for (Marker marker : originMarkers) {

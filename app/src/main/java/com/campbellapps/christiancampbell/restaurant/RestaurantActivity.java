@@ -65,7 +65,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         //Sets Firebase
         Firebase.setAndroidContext(this);
-//        Firebase.getDefaultConfig().setPersistenceEnabled(true);
+        Firebase.getDefaultConfig().setPersistenceEnabled(true);
 
         //Initializes variables with layout
         burger = (ImageView) findViewById(R.id.burger);
@@ -86,6 +86,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         //Creates an instance of Firebase
         mRootRef = new Firebase("https://restaurantroulette-89089.firebaseio.com/restaurants");
+        mRootRef.keepSynced(true);
 
         //starts grab fire method
         grabFireBase();
