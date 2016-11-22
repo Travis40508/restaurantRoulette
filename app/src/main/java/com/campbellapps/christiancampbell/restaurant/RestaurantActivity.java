@@ -104,7 +104,7 @@ public class RestaurantActivity extends AppCompatActivity {
         homecookingClick();
         steakClick();
         randomClick();
-        
+
 
         this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

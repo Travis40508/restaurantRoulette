@@ -40,4 +40,13 @@
         android:progress="10"
         />
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/main_logo"
+        android:id="@+id/logo_small"
+        android:layout_marginBottom="141dp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

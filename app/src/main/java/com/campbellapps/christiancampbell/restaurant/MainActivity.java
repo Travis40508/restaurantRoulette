@@ -2,6 +2,7 @@ package com.campbellapps.christiancampbell.restaurant;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView johnson;
     ImageView floyd;
     ImageView pike;
+    MediaPlayer mp;
 
 
 
@@ -33,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
         floyd = (ImageView) findViewById(R.id.floyd_county);
         pike = (ImageView) findViewById(R.id.pike_county);
 
-
-
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.button);
 
         //Calls clicking methods
         magoffinClick();
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         magoffin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 intent.putExtra("county", "magoffin");
                 startActivity(intent);
