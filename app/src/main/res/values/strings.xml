@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Restaurant</string>
+    <string name="rr">Restaurant Roulette</string>
+    <string name="rrreal">RR</string>
 </resources>
