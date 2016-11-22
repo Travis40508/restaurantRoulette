@@ -1,6 +1,7 @@
 package com.campbellapps.christiancampbell.restaurant;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,12 +17,15 @@ public class ListActivity extends AppCompatActivity {
 
     //Sets up variable to make sure only button clicked information comes through.
     String choice;
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         Intent intent = getIntent();
         choice = intent.getStringExtra("choice");
+
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.mouse_click);
 
         this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         getExtras();
@@ -48,6 +52,7 @@ public class ListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                mp.start();
                 Intent intent = new Intent(ListActivity.this, MapsActivity.class);
                 Restaurant restaurant = list.get(position);
                 Toast.makeText(ListActivity.this, "Finding Directions, Please Wait!", Toast.LENGTH_SHORT).show();

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         floyd = (ImageView) findViewById(R.id.floyd_county);
         pike = (ImageView) findViewById(R.id.pike_county);
 
-        mp = MediaPlayer.create(getApplicationContext(), R.raw.button);
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.mouse_click);
 
         //Calls clicking methods
         magoffinClick();
@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         johnson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 intent.putExtra("county", "johnson");
                 startActivity(intent);
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         floyd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 intent.putExtra("county", "floyd");
                 startActivity(intent);
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         pike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 intent.putExtra("county", "pike");
                 startActivity(intent);

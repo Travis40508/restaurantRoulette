@@ -1,6 +1,7 @@
 package com.campbellapps.christiancampbell.restaurant;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -37,6 +38,8 @@ public class RestaurantActivity extends AppCompatActivity {
     ImageView sandwich;
     ImageView taco;
     ImageView steak;
+
+    MediaPlayer mp;
 
 
     //Sets ArrayLists based on food preference. These will be used for adapter later on.
@@ -81,6 +84,8 @@ public class RestaurantActivity extends AppCompatActivity {
         sandwich = (ImageView) findViewById(R.id.sandwich);
         taco = (ImageView) findViewById(R.id.taco);
         steak = (ImageView) findViewById(R.id.steak);
+
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.mouse_click);
 
 
         //Creates an instance of Firebase
@@ -210,6 +215,7 @@ public class RestaurantActivity extends AppCompatActivity {
         burger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "burger");
                 intent.putExtra("burger", burgerList);
@@ -226,6 +232,7 @@ public class RestaurantActivity extends AppCompatActivity {
         taco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "taco");
                 intent.putExtra("taco", tacoList);
@@ -242,6 +249,7 @@ public class RestaurantActivity extends AppCompatActivity {
         mexican.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "mexican");
                 intent.putExtra("mexican", mexicanList);
@@ -258,6 +266,7 @@ public class RestaurantActivity extends AppCompatActivity {
         italian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "italian");
                 intent.putExtra("italian", italianList);
@@ -274,6 +283,7 @@ public class RestaurantActivity extends AppCompatActivity {
         bbq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "barbeque");
                 intent.putExtra("barbeque", barbequeList);
@@ -290,6 +300,7 @@ public class RestaurantActivity extends AppCompatActivity {
         chicken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "chicken");
                 intent.putExtra("chicken", chickenList);
@@ -303,9 +314,11 @@ public class RestaurantActivity extends AppCompatActivity {
         });
     }
     public void pizzaClick() {
+
         pizza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "pizza");
                 intent.putExtra("pizza", pizzaList);
@@ -319,9 +332,11 @@ public class RestaurantActivity extends AppCompatActivity {
         });
     }
     public void sandwichClick() {
+
         sandwich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "sandwich");
                 intent.putExtra("sandwich", sandwichList);
@@ -338,6 +353,7 @@ public class RestaurantActivity extends AppCompatActivity {
         chinese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "chinese");
                 intent.putExtra("chinese", chineseList);
@@ -351,9 +367,11 @@ public class RestaurantActivity extends AppCompatActivity {
         });
     }
     public void fishClick() {
+
         fish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "fish");
                 intent.putExtra("fish", fishList);
@@ -370,6 +388,7 @@ public class RestaurantActivity extends AppCompatActivity {
         homecooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "homecooking");
                 intent.putExtra("homecooking", homecookingList);
@@ -387,6 +406,7 @@ public class RestaurantActivity extends AppCompatActivity {
         steak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Intent intent = new Intent(RestaurantActivity.this, ListActivity.class);
                 intent.putExtra("choice", "steak");
                 intent.putExtra("steak", steakList);
@@ -404,6 +424,7 @@ public class RestaurantActivity extends AppCompatActivity {
         random.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 Restaurant restaurant;
                 Random randomGenerator = new Random();
                 int randomNumber = randomGenerator.nextInt(randomList.size());
