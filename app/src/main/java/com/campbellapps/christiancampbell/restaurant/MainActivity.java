@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp.start();
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this,
                 R.style.Theme_AppInvite_Preview_Base);
                 alertBuilder.setNegativeButton("Close", null);
