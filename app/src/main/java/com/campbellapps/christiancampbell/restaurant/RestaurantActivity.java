@@ -85,7 +85,7 @@ public class RestaurantActivity extends AppCompatActivity {
         taco = (ImageView) findViewById(R.id.taco);
         steak = (ImageView) findViewById(R.id.steak);
 
-        mp = MediaPlayer.create(getApplicationContext(), R.raw.mouse_click);
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.blip1);
 
 
         //Creates an instance of Firebase

@@ -15,6 +15,7 @@ public class SpashScreen extends AppCompatActivity {ProgressBar pgr;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spash_screen);
+
         Thread myThread = new Thread(){
             @Override
             public void run() {

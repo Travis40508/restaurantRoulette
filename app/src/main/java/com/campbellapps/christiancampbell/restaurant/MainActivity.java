@@ -7,19 +7,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.firebase.client.Firebase;
-
 public class MainActivity extends AppCompatActivity {
     //Declaring variables.
-    Firebase mRootRef;
+
     ImageView magoffin;
     ImageView johnson;
     ImageView floyd;
     ImageView pike;
+    ImageView help;
     MediaPlayer mp;
 
 
@@ -34,18 +34,20 @@ public class MainActivity extends AppCompatActivity {
         johnson = (ImageView) findViewById(R.id.johnson_county);
         floyd = (ImageView) findViewById(R.id.floyd_county);
         pike = (ImageView) findViewById(R.id.pike_county);
+        help = (ImageView) findViewById(R.id.help);
 
-        mp = MediaPlayer.create(getApplicationContext(), R.raw.mouse_click);
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.blip1);
 
         //Calls clicking methods
         magoffinClick();
         johnsonClick();
         floydClick();
         pikeClick();
+        helpClick();
         this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    //onStart animations.
+    //Sets permissions
     @Override
     protected void onStart() {
         super.onStart();
@@ -128,6 +130,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
                 intent.putExtra("county", "pike");
                 startActivity(intent);
+            }
+        });
+    }
+
+    public void helpClick() {
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this,
+                R.style.Theme_AppInvite_Preview_Base);
+                alertBuilder.setNegativeButton("Close", null);
+                alertBuilder.setTitle("Hungry?");
+                alertBuilder.setMessage("1. Pick the County You're eating in." + "\n" +
+                "2. Pick the food you're craving." + "\n" +
+                "3. Pick the restaurant you wish to eat at." + "\n" +
+                "4. Follow the directions to your restaurant!" + "\n" +
+                "It's that easy! Enjoy, and Happy Eating!");
+                alertBuilder.create().show();
             }
         });
     }

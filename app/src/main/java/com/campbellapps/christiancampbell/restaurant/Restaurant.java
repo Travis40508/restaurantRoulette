@@ -7,6 +7,8 @@ import android.os.Parcelable;
  * Created by rodneytressler on 11/15/16.
  */
 
+//Model for casting firebase objects onto.
+
 public class Restaurant implements Parcelable{
 
     String name;
