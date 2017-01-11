@@ -25,7 +25,7 @@ public class ListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         choice = intent.getStringExtra("choice");
 
-        mp = MediaPlayer.create(getApplicationContext(), R.raw.blip1);
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.blip1); //irrelevant
 
         this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         getExtras();
